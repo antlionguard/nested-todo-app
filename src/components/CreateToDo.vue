@@ -12,13 +12,13 @@
 import { ref } from 'vue'
 export default {
   emits: ['createToDo'],
-  setup (_, context) {
+  setup (_, { emit }) {
     const name = ref('')
     function createToDo () {
       if (!name.value) {
         return
       }
-      context.emit('createToDo', {
+      emit('createToDo', {
         name: name.value,
         todos: [],
         isSelectedForCreate: false,
